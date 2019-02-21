@@ -1,0 +1,13 @@
+https://mq-software-carpentry.github.io/2019-02-22-plotting-r/
+
+Helpful links
+Workshop webpage: https://mq-software-carpentry.github.io/2019-02-22-plotting-r/
+R Lesson: https://humburg.github.io/r-socialsci-git/
+Git:
+Workshop GitHub repository: https://github.com/humburg/r-ggplot-project
+ggplot reference: https://ggplot2.tidyverse.org/reference/index.html
+RStudio Cheat Sheets: https://www.rstudio.com/resources/cheatsheets/
+ggplot cheat sheet: https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf
+ggplot Exensions: https://www.ggplot2-exts.org
+Stackoverflow: https://stackoverflow.com/questions/tagged/r
+
