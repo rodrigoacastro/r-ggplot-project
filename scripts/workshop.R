@@ -15,6 +15,7 @@ ggplot(data=interviews_plotting)
 (interviews_plot <- ggplot(data=interviews_plotting,
        aes (x=no_membrs,y=number_items)) +
   	geom_point()
+)
 
 
 interview_plot + 
