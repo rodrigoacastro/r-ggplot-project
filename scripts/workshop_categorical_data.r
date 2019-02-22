@@ -135,4 +135,24 @@ ggplot(data = interviews_plotting,
   geom_text(aes(label=stat(count),y=5.5),
             position = position_fill(), color = "white")
 
+# violin plots
+ggplot(data = interviews_plotting,
+       aes(x = respondent_wall_type, y = rooms)) +
+      geom_violin(alpha = 0) +
+      geom_jitter(alpha = 0.5, width = 0.2, color = "tomato")
+      
+
+# per village
+ggplot(data = interviews_plotting,
+       aes(x = respondent_wall_type, y = rooms)) +
+  geom_violin(alpha = 0) +
+  geom_jitter(alpha = 0.5, width = 0.2, aes(color = village)
+  )
+
+
+ggplot(data = interviews_plotting,
+       aes(x = respondent_wall_type, y = rooms,color = village)) +
+  geom_violin(alpha = 0) +
+  geom_jitter(alpha = 0.5, width = 0.2, aes(color = village)
+  )
 
