@@ -11,7 +11,7 @@ interviews_plotting <- read_csv("data_output/interviews_plotting.csv")
 ggplot(data=interviews_plotting,
   aes (x=no_membrs,y=number_items)) +
   geom_point(alpha=0.5)
-)
+
 
 
 # bar plots
@@ -229,3 +229,38 @@ ggplot ( data = interviews_plotting,
   theme_classic() +
   theme(axis.text.x = element_text(angle=45,hjust=1))
 
+# change size of the text and more
+
+scale_breaks= c(0,0.5,1)
+
+ggplot ( data = interviews_plotting, 
+         aes(fill = memb_assoc, x = respondent_wall_type)) +
+  geom_bar(position = "fill") +
+  stat_count(geom = "text", aes(label=stat(count)),
+             position = position_fill(vjust=0.5), color = "white") +
+  labs ( x = "Wall type", y = "Proportion", title = "Wall type by village") + 
+  facet_wrap(~village,nrow=2) +
+  scale_x_discrete(labels) +
+  scale_y_continuous(breaks = scale_breaks) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle=45,hjust=1,size=8,color="blue"),
+        plot.title = element_text(hjust = 0.5)) +
+  guides(fill=guide_legend(title="members\nassociated",title.position = "top"))
+
+
+# dataset
+interviews_plotting
+
+colnames(interviews_plotting)
+
+
+# plotting one more time
+ggplot ( data = interviews_plotting, 
+         aes(fill = no_membrs, x = years_liv)) +
+  #x = years_liv, y = village,color = village
+  geom_bar(position = "dodge") +
+  theme_bw() +
+  labs ( x = "Years of life", y = "Count", title = "Years of life by count")
+
+  
+  
