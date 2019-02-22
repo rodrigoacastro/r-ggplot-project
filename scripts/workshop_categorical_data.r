@@ -123,6 +123,7 @@ ggplot(data = interviews_plotting,
              position = position_jitterdodge(jitter.width = 0.1, 
                                              jitter.height = 0.1))
 
+<<<<<<< HEAD
 
 # graph without counts
 ggplot(data = interviews_plotting,
@@ -155,4 +156,76 @@ ggplot(data = interviews_plotting,
   geom_violin(alpha = 0) +
   geom_jitter(alpha = 0.5, width = 0.2, aes(color = village)
   )
+
+# labels fixed
+ggplot ( data = interviews_plotting, 
+         aes(fill = respondent_wall_type, x = village)) +
+        geom_bar(position = "fill") +
+        stat_count(geom = "text", aes(label=stat(count)),
+             position=position_fill(vjust=0.5), color = "white") +
+        labs ( x = "Village", y = "Proportion", 
+                      title = "Wall type by village") +
+        scale_fill_discrete(labels =c("burnt brick","cement","mud daub", "sun bricks")) +
+        guides(fill=guide_legend(title="wall type",title.position = "top"))
+
+
+
+ggplot ( data = interviews_plotting, 
+         aes(fill = memb_assoc, x = respondent_wall_type)) +
+  geom_bar(position = "fill") +
+  stat_count(geom = "text", aes(label=stat(count)),
+             position=position_fill(vjust=0.5), color = "white") +
+  labs ( x = "Wall type", y = "Members associated", 
+         title = "Wall type by members associated") +
+  #scale_fill_discrete(labels =c("burnt brick","cement","mud daub", "sun bricks")) +
+  guides(fill=guide_legend(title="members\nassociated",title.position = "top"))
+
+# faceting
+
+labels=c("burnt bricks","cement", "mud daub","sun bricks")
+
+ggplot ( data = interviews_plotting, 
+         aes(fill = memb_assoc, x = respondent_wall_type)) +
+  geom_bar(position = "fill") +
+  stat_count(geom = "text", aes(label=stat(count)),
+             position=position_fill(vjust=0.5), color = "white") +
+  scale_x_discrete(labels) + 
+  labs ( x = "Wall type", y = "Proportion") + facet_wrap(~village,nrow=2) +
+  theme(axis.text.x = element_text(angle=45,hjust=1))
+
+
+# using predefined themes
+
+# theme minimal
+ggplot ( data = interviews_plotting, 
+         aes(fill = memb_assoc, x = respondent_wall_type)) +
+  geom_bar(position = "fill") +
+  stat_count(geom = "text", aes(label=stat(count)),
+             position=position_fill(vjust=0.5), color = "white") +
+  scale_x_discrete(labels) + 
+  labs ( x = "Wall type", y = "Proportion") + facet_wrap(~village,nrow=2) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle=45,hjust=1))
+
+# theme bw
+ggplot ( data = interviews_plotting, 
+         aes(fill = memb_assoc, x = respondent_wall_type)) +
+  geom_bar(position = "fill") +
+  stat_count(geom = "text", aes(label=stat(count)),
+             position=position_fill(vjust=0.5), color = "white") +
+  scale_x_discrete(labels) + 
+  labs ( x = "Wall type", y = "Proportion") + facet_wrap(~village,nrow=2) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle=45,hjust=1))
+
+# theme classic
+ggplot ( data = interviews_plotting, 
+         aes(fill = memb_assoc, x = respondent_wall_type)) +
+  geom_bar(position = "fill") +
+  stat_count(geom = "text", aes(label=stat(count)),
+             position=position_fill(vjust=0.5), color = "white") +
+  scale_x_discrete(labels) + 
+  labs ( x = "Wall type", y = "Proportion") + facet_wrap(~village,nrow=2) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle=45,hjust=1))
 
